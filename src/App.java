@@ -2,14 +2,15 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Student stud = new Student();
+        Student max = new Student();
 
         Scanner list = new Scanner(System.in);
         System.out.println("Enter a new user?");
         boolean add = list.nextBoolean();
 
         while (add){
-            Student stud = new Student();
-            Student max = new Student();
+
             System.out.println("Enter student name:");
             stud.setName(list.next());
             System.out.println("How old is the student?");
@@ -17,9 +18,17 @@ public class App {
             System.out.println("Is student married?");
             stud.setMarried(list.nextBoolean());
 
+            if (stud.getAge() > max.getAge() && !stud.isMarried()){
+                max.setName(stud.getName());
+                max.setAge(stud.getAge());
+            }
+
             System.out.println("Do you want to add new user?");
             add = list.nextBoolean();
+
             }
+        System.out.println(max.getName() +" is the oldest student not married. He is "+ max.getAge() + " old.");
+
     }
 
 //        Scanner list = new Scanner(System.in);
