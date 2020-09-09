@@ -4,31 +4,23 @@ public class App {
     public static void main(String[] args) {
 
         Scanner list = new Scanner(System.in);
-        Student stud = new Student();
-        Student max = new Student();
+        System.out.println("Enter a new user?");
+        boolean add = list.nextBoolean();
 
-        while (true){
-            System.out.println("Enter a new user? (1: YES 0: NO): ");
-            int add = list.nextInt();
+        while (add){
+            Student stud = new Student();
+            Student max = new Student();
+            System.out.println("Enter student name:");
+            stud.setName(list.next());
+            System.out.println("How old is the student?");
+            stud.setAge(list.nextInt());
+            System.out.println("Is student married?");
+            stud.setMarried(list.nextBoolean());
 
-            if (add == 1) {
-
-                System.out.println("Enter student name:");
-                stud.setName(list.next());
-                System.out.println("How old is the student?");
-                stud.setAge(list.nextInt());
-                System.out.println("Is student married?");
-                stud.setMarried(list.nextBoolean());
-
-
+            System.out.println("Do you want to add new user?");
+            add = list.nextBoolean();
             }
-            else if (add == 0) {
-                break;
-            }
-            else {
-                System.out.println("Please enter valid entry.");
-            }
-        }
+    }
 
 //        Scanner list = new Scanner(System.in);
 //        System.out.println("Input number of students: ");
@@ -50,5 +42,4 @@ public class App {
 //        list.close();
 
     }
-}
 
